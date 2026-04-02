@@ -5,11 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, Phone, User, Globe } from 'lucide-react';
+import ConsultationModal from '../ConsultationModal/ConsultationModal';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -140,6 +142,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary-new"
+              onClick={() => setIsModalOpen(true)}
             >
               Get Consultation
             </motion.button>
@@ -177,6 +180,10 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <ConsultationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </nav>
   );
 };

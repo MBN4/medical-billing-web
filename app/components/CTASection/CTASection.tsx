@@ -1,10 +1,14 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import ConsultationModal from '../ConsultationModal/ConsultationModal';
+import { useRouter } from 'next/navigation';
 
 const CTASection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
   return (
     <section className="cta-section-new section-padding">
       <div className="container">
@@ -37,10 +41,13 @@ const CTASection = () => {
               </div>
 
               <div className="cta-actions">
-                <button className="btn-white-premium">
+                <button 
+                  className="btn-white-premium"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   Get Free Consultation <ArrowRight size={18} />
                 </button>
-                <button className="btn-outline-white">
+                <button className="btn-outline-white" onClick={() => router.push('/pricing')}>
                   View Pricing
                 </button>
               </div>
@@ -59,6 +66,10 @@ const CTASection = () => {
           </div>
         </div>
       </div>
+      <ConsultationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 };

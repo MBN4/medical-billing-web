@@ -1,12 +1,27 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Globe, Mail, Phone, MapPin, Send, ShieldCheck, Award } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const Footer = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Basic valid email pattern check
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (isValid) {
+      router.push('/pricing');
+    } else {
+      alert("Please enter a valid email address.");
+    }
+  };
+
   return (
     <footer className="footer-root">
       <div className="footer-newsletter-section">
@@ -16,9 +31,16 @@ const Footer = () => {
               <h3 className="newsletter-h3">Stay Ahead of RCM Trends</h3>
               <p className="newsletter-p">Join 5,000+ providers getting our weekly medical billing insights.</p>
             </div>
-            <form className="newsletter-form-new">
+            <form className="newsletter-form-new" onSubmit={handleSubscribe}>
               <div className="input-group-new">
-                <input type="email" placeholder="Your work email" required className="newsletter-input" />
+                <input 
+                  type="email" 
+                  placeholder="Your work email" 
+                  required 
+                  className="newsletter-input" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <button type="submit" className="newsletter-submit-btn">
                   Subscribe <Send size={16} />
                 </button>
