@@ -1,0 +1,90 @@
+.knowledge-wrapper {
+    width: 100%;
+    background-color: var(--white);
+    padding: 100px 5%;
+}
+
+.knowledge-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.knowledge-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.knowledge-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+}
+
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.knowledge-card {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.knowledge-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient overlay using our Bottle Green variable */
+    background: linear-gradient(to top, rgba(10, 77, 74, 0.9) 10%, rgba(10, 77, 74, 0.2) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 30px;
+    transition: var(--transition);
+}
+
+.knowledge-card:hover .card-overlay {
+    background: linear-gradient(to top, rgba(20, 184, 166, 0.9) 10%, rgba(20, 184, 166, 0.2) 100%);
+}
+
+.card-overlay h3 {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .knowledge-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .knowledge-grid {
+        grid-template-columns: 1fr;
+    }
+    .knowledge-header h2 {
+        font-size: 28px;
+    }
+}

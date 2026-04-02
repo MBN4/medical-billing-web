@@ -1,0 +1,133 @@
+.all-states-wrapper {
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.states-hero {
+  padding: 120px 5% 80px;
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.states-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.states-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.states-hero h1 span {
+  color: var(--accent);
+}
+
+.states-hero p {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.states-list-section {
+  padding: 100px 5%;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.states-alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.state-link-card a {
+  text-decoration: none;
+}
+
+.state-card-inner {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--primary);
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.pin-icon {
+  color: var(--accent);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.arrow-icon {
+  margin-left: auto;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  color: var(--accent);
+}
+
+.state-link-card:hover .state-card-inner {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  border-color: var(--accent);
+}
+
+.state-link-card:hover .pin-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.state-link-card:hover .arrow-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.states-cta {
+  padding: 100px 5%;
+  text-align: center;
+}
+
+.cta-box {
+  background: var(--white);
+  padding: 80px 40px;
+  border-radius: 32px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid rgba(20, 184, 166, 0.1);
+}
+
+.cta-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.cta-box p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .states-alphabet-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}

@@ -1,0 +1,122 @@
+.form-outer-section {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
+    position: relative;
+    z-index: 50;
+    margin-top: -70px; 
+    margin-bottom: -60px;
+}
+
+.floating-form-container {
+    background: var(--white);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(10, 77, 74, 0.05);
+}
+
+.medical-form-grid {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.form-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.form-field label span {
+    color: #ef4444;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--bg-light);
+    border: 1px solid rgba(10, 77, 74, 0.1);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-field input:focus {
+    background: var(--white);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+}
+
+.form-submit-area {
+    flex: 0.8;
+}
+
+.form-main-btn {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.form-main-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(20, 184, 166, 0.25);
+}
+
+@media (max-width: 1024px) {
+    .form-outer-section {
+        margin-top: -40px;
+    }
+    
+    .medical-form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-submit-area {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-outer-section {
+        margin-top: -30px;
+        padding: 0 15px;
+    }
+
+    .floating-form-container {
+        padding: 25px 20px;
+    }
+
+    .medical-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-submit-area {
+        grid-column: span 1;
+    }
+}

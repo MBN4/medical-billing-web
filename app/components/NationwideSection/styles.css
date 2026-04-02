@@ -1,0 +1,107 @@
+.nationwide-wrapper {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    padding: 100px 5%;
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.map-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/us-map.png'); 
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.nationwide-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.nationwide-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.nationwide-subtitle {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 850px;
+    margin: 0 auto 50px;
+}
+
+.states-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.state-btn {
+    background: var(--white);
+    color: var(--primary);
+    border: none;
+    padding: 15px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block;
+    text-decoration: none;
+}
+
+.view-more-btn {
+    background: var(--accent);
+    color: var(--white) !important;
+}
+
+.state-btn:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
+}
+
+.view-more-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+@media (max-width: 900px) {
+    .states-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .states-grid {
+        grid-template-columns: 1fr;
+    }
+    .nationwide-wrapper {
+        padding: 60px 20px;
+    }
+    .nationwide-title {
+        font-size: 22px;
+    }
+}
